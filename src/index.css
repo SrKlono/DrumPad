@@ -2,4 +2,35 @@
 
 body {
   background-color: #b8dcd8;
+  color: #221f1d;
+}
+
+.g-border {
+  border: #221f1d solid 2px;
+}
+
+.g-shadow {
+  box-shadow: 8px 8px #221f1d;
+}
+
+.s-shadow {
+  box-shadow: 2px 2px #221f1d;
+}
+
+.no-line-h {
+  line-height: 1;
+}
+
+#drum-machine {
+  background-color: #f1ebdc;
+}
+
+#display {
+  color: #f1ebdc;
+  background-color: #221f1d;
+}
+
+#volume-slider {
+  color: #221f1d;
+  accent-color: #221f1d;
 }

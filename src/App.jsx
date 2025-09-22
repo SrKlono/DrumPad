@@ -18,18 +18,19 @@ const App = () => {
 
 	const [displayText, setDisplayText] = useState("");
 
+	const handleKeyDown = (e) => {
+		document.getElementById(e.key.toUpperCase()).play();
+		sounds.forEach((element) => {
+			if (element.key === e.key.toUpperCase())
+				setDisplayText(
+					element.mp3Path.replace(/\.mp3|\/|_/g, (match) =>
+						match === "_" ? " " : ""
+					)
+				);
+		});
+	};
+
 	useEffect(() => {
-		function handleKeyDown(e) {
-			document.getElementById(e.key.toUpperCase()).play();
-			sounds.forEach((element) => {
-				if (element.key === e.key.toUpperCase())
-					setDisplayText(
-						element.mp3Path.replace(/\.mp3|\/|_/g, (match) =>
-							match === "_" ? " " : ""
-						)
-					);
-			});
-		}
 		document.addEventListener("keydown", handleKeyDown);
 
 		// Don't forget to clean up
@@ -42,60 +43,62 @@ const App = () => {
 		<div className="h-screen flex justify-center items-center">
 			<div
 				id="drum-machine"
-				className="flex flex-wrap rounded-lg border g-border g-shadow p-8 gap-8"
+				className="flex min-w-lg flex-wrap rounded-lg border g-border g-shadow p-8 gap-8"
 			>
 				<div className="grid grid-cols-3 grid-rows-3 gap-2">
 					<Button
 						btn_key={sounds[0].key}
 						sound_id={sounds[0].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[1].key}
 						sound_id={sounds[1].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[2].key}
 						sound_id={sounds[2].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[3].key}
 						sound_id={sounds[3].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[4].key}
 						sound_id={sounds[4].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[5].key}
 						sound_id={sounds[5].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[6].key}
 						sound_id={sounds[6].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[7].key}
 						sound_id={sounds[7].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 					<Button
 						btn_key={sounds[8].key}
 						sound_id={sounds[8].mp3Path}
+						displayFunc={setDisplayText}
 					/>
 				</div>
-				<div className="flex flex-col">
+				<div className="flex flex-col flex-1 justify-between">
 					<div
 						id="display"
 						className="g-border rounded-md p-4 text-xl font-bold text-center min-h-16"
 					>
 						{displayText}
 					</div>
-					<input
-						type="range"
-						min="1"
-						max="100"
-						id="volume-slider"
-						className="flex-1"
-					/>
 					<div className="flex self-end">
 						<a
 							href=""

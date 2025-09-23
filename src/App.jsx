@@ -19,23 +19,45 @@ const App = () => {
 	const [displayText, setDisplayText] = useState("");
 
 	const handleKeyDown = (e) => {
-		document.getElementById(e.key.toUpperCase()).play();
+		var btn = document.getElementById(e.key.toUpperCase());
+		if (btn) {
+			btn.play();
+
+			sounds.forEach((element) => {
+				if (element.key === e.key.toUpperCase()) {
+					const mp3Name = element.mp3Path.replace(
+						/\.mp3|\/|_/g,
+						(match) => (match === "_" ? " " : "")
+					);
+					setDisplayText(mp3Name);
+					document.getElementById(mp3Name).classList.add("scale-90");
+				}
+			});
+		}
+	};
+
+	const handleKeyUp = (e) => {
 		sounds.forEach((element) => {
-			if (element.key === e.key.toUpperCase())
-				setDisplayText(
-					element.mp3Path.replace(/\.mp3|\/|_/g, (match) =>
-						match === "_" ? " " : ""
+			if (element.key === e.key.toUpperCase()) {
+				document
+					.getElementById(
+						element.mp3Path.replace(/\.mp3|\/|_/g, (match) =>
+							match === "_" ? " " : ""
+						)
 					)
-				);
+					.classList.remove("scale-90");
+			}
 		});
 	};
 
 	useEffect(() => {
 		document.addEventListener("keydown", handleKeyDown);
+		document.addEventListener("keyup", handleKeyUp);
 
 		// Don't forget to clean up
 		return function cleanup() {
 			document.removeEventListener("keydown", handleKeyDown);
+			document.removeEventListener("keyup", handleKeyUp);
 		};
 	}, []);
 

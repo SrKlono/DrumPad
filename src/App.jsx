@@ -45,7 +45,7 @@ const App = () => {
 				id="drum-machine"
 				className="flex min-w-lg flex-wrap rounded-lg border g-border g-shadow p-8 gap-8"
 			>
-				<div className="grid grid-cols-3 grid-rows-3 gap-2">
+				<div className="grid grid-cols-3 grid-rows-3 gap-3">
 					<Button
 						btn_key={sounds[0].key}
 						sound_id={sounds[0].mp3Path}
@@ -102,7 +102,7 @@ const App = () => {
 					<div className="flex self-end">
 						<a
 							href=""
-							className="g-border s-shadow rounded-full mr-2 p-3"
+							className="btn g-border s-shadow rounded-full mr-2 p-3"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ const App = () => {
 						</a>
 						<a
 							href=""
-							className="g-border s-shadow rounded-full p-3"
+							className="btn g-border s-shadow rounded-full p-3"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

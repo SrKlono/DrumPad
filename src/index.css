@@ -34,3 +34,10 @@ body {
   color: #221f1d;
   accent-color: #221f1d;
 }
+
+@utility btn {
+    @apply p-4;
+    @apply hover:scale-110;
+    @apply active:scale-90;
+    @apply transition-transform;
+}

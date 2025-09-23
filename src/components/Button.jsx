@@ -12,7 +12,7 @@ const Button = ({ btn_key, sound_id, displayFunc }) => {
 					)
 				);
 			}}
-			className="p-4 g-border rounded-md no-line-h text-center text-xl font-semibold drum-pad s-shadow"
+			className="btn g-border rounded-md no-line-h text-center text-xl font-semibold drum-pad s-shadow"
 			id={sound_id.replace(/\.mp3|\/|_/g, (match) =>
 				match === "_" ? " " : ""
 			)}

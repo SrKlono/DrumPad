@@ -63,8 +63,6 @@ const App = () => {
 
 	return (
 		<div>
-			<img src="" className="size-full" />
-
 			<div className="h-screen flex justify-center items-center bg-cover bg-[image:url(/stacked-waves-haikei.svg)]">
 				<div
 					id="drum-machine"
